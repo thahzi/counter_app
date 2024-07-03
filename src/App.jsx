@@ -1,12 +1,24 @@
 import './App.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { decrement, increament, reset } from './redux/counterslice'
+import { decrement, increament, reset,rangeChange } from './redux/counterslice'
 
 function App() {
 
   const count = useSelector((state)=>state.counterReducer.value)
 
   const dispatch = useDispatch()
+
+  const handleRange =()=>{
+
+    if(!range){
+      alert('please enter range')
+    }
+    else{
+      dispatch(rangeChange(Number(range)))
+    }
+
+  }
+
 
 
   return (
@@ -28,8 +40,9 @@ function App() {
 
           </div>
             <div className="d-flex mt-5">
-              <input type="text" placeholder='range'className='form-control'/>
-              <button className='btn btn-primary ms-3'>click</button>
+              <input type="text" placeholder='range'className='form-control'onChange={(e)=>setRange(e.target.value)}/>
+
+              <button className='btn btn-primary ms-3' onClick={handleRange}>click</button>
             </div>
         </div>
 
