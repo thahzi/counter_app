@@ -1,4 +1,4 @@
-import { counterSlice } from "./counterslice"
+import  counterSlice from "./counterslice"
 import { configureStore } from "@reduxjs/toolkit";
 
 

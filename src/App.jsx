@@ -1,12 +1,12 @@
-import { useState } from 'react'
 import './App.css'
 import { useDispatch, useSelector } from 'react-redux'
+import { decrement, increament, reset } from './redux/counterslice'
 
 function App() {
 
   const count = useSelector((state)=>state.counterReducer.value)
 
-  const dispatch = useDispatch
+  const dispatch = useDispatch()
 
 
   return (
@@ -16,13 +16,15 @@ function App() {
         <div style={{backgroundColor:"white", width:'500px'}} className=" p-5 rounded">
           <h1 className='text-info'>counter application</h1>
 
-          <h1 className='text-center my-5'style={{fontSize:"50px"}}>0</h1>
+          <h1 className='text-center my-5'style={{fontSize:"50px"}}>{count}</h1>
 
           <div className="mt-5 d-flex justify-content-evenly">
 
-            <button className='btn btn-warning'>Decrement</button>
-            <button className='btn btn-danger'>reset</button>
-            <button className='btn btn-success'>increment</button>
+            <button type='button' className='btn btn-warning' >decrement</button>
+
+            <button type='button' className='btn btn-danger'onClick={()=>dispatch(reset())}>reset</button>
+
+            <button type='button' className='btn btn-success' onClick={()=>dispatch(increament())}>increment</button>
 
           </div>
             <div className="d-flex mt-5">

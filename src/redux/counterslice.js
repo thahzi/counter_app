@@ -6,7 +6,7 @@ export const counterSlice = createSlice({
     name :"counter",
     //initial value of the state
     initialState :{
-        value:0
+        value:100
     },
     // actions
     reducers:{
